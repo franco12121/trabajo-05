@@ -1,8 +1,9 @@
-# Imagen a usar
-FROM php:7.0-apache
-# copiamos todos los ficheros en el directorio en cuestion
-COPY src/ /var/www/html
-# Exponemos el puerto 80
+FROM php:8.2-apache
+
+# Instalamos los editores de texto actualizando los repositorios modernos
+RUN apt-get update && apt-get install -y \
+    vim \
+    nano \
+    && rm -rf /var/lib/apt/lists/*
+
 EXPOSE 80
-# Quien lo ha realizado
-MAINTAINER JL Gonzalez “jlgs@cifpvirgendegracia.com”
